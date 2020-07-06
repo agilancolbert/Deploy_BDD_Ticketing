@@ -6,7 +6,7 @@ provider "aws" {
   region = "eu-west-1"
 }
 
-# Test Base RDS
+# Base RDS
 
 resource "aws_db_instance" "default" {
   allocated_storage    = 20
