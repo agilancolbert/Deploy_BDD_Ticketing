@@ -16,8 +16,8 @@
 -- Base de données :  `ticketing`
 --
 
-CREATE DATABASE ticketing;
-use ticketing;
+--CREATE DATABASE ticketing;
+--use ticketing;
 
 -- --------------------------------------------------------
 
