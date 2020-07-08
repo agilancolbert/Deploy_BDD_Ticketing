@@ -4,6 +4,7 @@ terraform {
 
 locals {
   timestamp = "${timestamp()}"
+  timestamp_sanitized = "${replace("${local.timestamp}", "/[- TZ:]/", "")}"
 }
 
 provider "aws" {
@@ -23,6 +24,6 @@ resource "aws_db_instance" "default" {
   password             = "azerty1234"
   parameter_group_name = "default.mysql5.7"
   publicly_accessible = "true"
-  final_snapshot_identifier = "Ticketing${local.timestamp}"
+  final_snapshot_identifier = "Ticketing${local.timestamp_sanitized}"
   
 }
