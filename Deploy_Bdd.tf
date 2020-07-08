@@ -2,6 +2,10 @@ terraform {
   backend "s3" {}
 }
 
+locals {
+  timestamp = "${timestamp()}"
+}
+
 provider "aws" {
   region = "eu-west-1"
 }
@@ -19,6 +23,6 @@ resource "aws_db_instance" "default" {
   password             = "azerty1234"
   parameter_group_name = "default.mysql5.7"
   publicly_accessible = "true"
-  final_snapshot_identifier = "foo"
+  final_snapshot_identifier = "Ticketing-DB-${local.timestamp}"
   
 }
